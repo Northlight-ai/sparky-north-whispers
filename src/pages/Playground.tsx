@@ -115,7 +115,7 @@ const Playground = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {/* Header */}
-      <div className="bg-gradient-to-r from-orange-700 to-orange-800 p-4 shadow-lg">
+      <div className="bg-gradient-to-r from-orange-400 to-orange-600 p-4 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <button
             onClick={() => navigate('/')}
@@ -124,7 +124,12 @@ const Playground = () => {
             <ArrowLeft size={20} />
             Back to Home
           </button>
-          <div className="text-center">
+          <div className="text-center flex flex-col items-center">
+            <img 
+              src="/lovable-uploads/023abf7f-c0b5-4134-9f38-7e5fd5bfdc3f.png" 
+              alt="North Light AI" 
+              className="h-12 w-auto mb-2"
+            />
             <h1 className="text-2xl font-bold text-white">North Light AI Playground</h1>
             <p className="text-orange-100 text-sm">Intelligent RAG-powered assistant</p>
           </div>
@@ -138,7 +143,7 @@ const Playground = () => {
         <div className="flex-1 overflow-y-auto space-y-4 mb-4 max-h-[calc(100vh-200px)]">
           {messages.length === 0 && (
             <div className="text-center text-gray-600 mt-20">
-              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🤖</span>
               </div>
               <p className="text-xl font-medium mb-2">Welcome to North Light AI Playground</p>
