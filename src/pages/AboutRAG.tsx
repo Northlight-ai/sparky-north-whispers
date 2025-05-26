@@ -1,6 +1,6 @@
-
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import ChatBubble from '@/components/ChatBubble';
 
 const AboutRAG = () => {
   const navigate = useNavigate();
@@ -144,6 +144,9 @@ const AboutRAG = () => {
             </div>
           </div>
         </div>
+
+        {/* Chat Bubble Component */}
+        <ChatBubble />
       </div>
     </div>
   );
