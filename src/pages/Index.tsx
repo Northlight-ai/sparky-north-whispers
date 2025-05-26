@@ -1,3 +1,4 @@
+
 import ChatBubble from "@/components/ChatBubble";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +14,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-100">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-16">
         <div className="text-center space-y-6">
@@ -22,9 +23,14 @@ const Index = () => {
             alt="North Light AI" 
             className="h-16 w-auto mx-auto mb-4"
           />
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-orange-500 to-orange-700 bg-clip-text text-transparent">
-            North Light AI Chatbot
-          </h1>
+          
+          {/* Title Box */}
+          <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 max-w-2xl mx-auto">
+            <h1 className="text-5xl font-bold text-black">
+              North Light AI Chatbot
+            </h1>
+          </div>
+
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Experience the power of intelligent conversation with our advanced RAG-powered chatbot. 
             Connect, communicate, and get precise answers from your website data.
