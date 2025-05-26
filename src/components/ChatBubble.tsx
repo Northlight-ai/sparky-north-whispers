@@ -61,7 +61,7 @@ const ChatBubble = () => {
       {isOpen && (
         <div className="mb-4 w-80 h-96 bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden animate-scale-in">
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-4 text-white rounded-t-2xl">
+          <div className="bg-gradient-to-r from-orange-400 to-orange-600 p-4 text-white rounded-t-2xl">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
@@ -69,7 +69,7 @@ const ChatBubble = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-sm">Chatty North</h3>
-                  <p className="text-xs text-blue-100">Always here to help</p>
+                  <p className="text-xs text-orange-100">Always here to help</p>
                 </div>
               </div>
               <Button
@@ -97,7 +97,7 @@ const ChatBubble = () => {
                   className={cn(
                     "max-w-[70%] px-3 py-2 rounded-lg text-sm",
                     message.sender === 'user'
-                      ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-br-sm'
+                      ? 'bg-gradient-to-r from-orange-400 to-orange-600 text-white rounded-br-sm'
                       : 'bg-white text-gray-800 shadow-sm border rounded-bl-sm'
                   )}
                 >
@@ -115,12 +115,12 @@ const ChatBubble = () => {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Type your message..."
-                className="flex-1 border-gray-300 focus:border-blue-500"
+                className="flex-1 border-gray-300 focus:border-orange-500"
               />
               <Button
                 onClick={handleSendMessage}
                 size="sm"
-                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 px-3"
+                className="bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 px-3"
               >
                 <Send size={16} />
               </Button>
@@ -133,7 +133,7 @@ const ChatBubble = () => {
       <Button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110",
+          "w-14 h-14 rounded-full bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110",
           isOpen && "rotate-180"
         )}
       >
