@@ -113,7 +113,7 @@ const Playground = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-950 via-amber-900 to-orange-900 flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col">
       {/* Header */}
       <div className="bg-gradient-to-r from-orange-700 to-orange-800 p-4 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -137,12 +137,12 @@ const Playground = () => {
         {/* Messages Area */}
         <div className="flex-1 overflow-y-auto space-y-4 mb-4 max-h-[calc(100vh-200px)]">
           {messages.length === 0 && (
-            <div className="text-center text-orange-100 mt-20">
+            <div className="text-center text-gray-600 mt-20">
               <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🤖</span>
               </div>
               <p className="text-xl font-medium mb-2">Welcome to North Light AI Playground</p>
-              <p className="text-sm text-orange-200">Ask me anything about your website content and get intelligent responses powered by RAG technology.</p>
+              <p className="text-sm text-gray-500">Ask me anything about your website content and get intelligent responses powered by RAG technology.</p>
             </div>
           )}
 
@@ -152,15 +152,15 @@ const Playground = () => {
               className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'} animate-in slide-in-from-bottom-2 duration-300`}
             >
               <div
-                className={`max-w-[75%] p-4 rounded-2xl shadow-lg ${
+                className={`max-w-[75%] p-4 rounded-2xl shadow-sm ${
                   message.type === 'user'
-                    ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white'
-                    : 'bg-gradient-to-r from-amber-800 to-orange-800 text-orange-50 border border-orange-700'
+                    ? 'bg-blue-500 text-white ml-12'
+                    : 'bg-gray-200 text-gray-800 mr-12'
                 }`}
               >
                 <p className="whitespace-pre-wrap break-words">{message.content}</p>
                 <p className={`text-xs mt-2 ${
-                  message.type === 'user' ? 'text-orange-100' : 'text-orange-200'
+                  message.type === 'user' ? 'text-blue-100' : 'text-gray-500'
                 }`}>
                   {message.timestamp.toLocaleTimeString()}
                 </p>
@@ -170,14 +170,14 @@ const Playground = () => {
 
           {isLoading && (
             <div className="flex justify-start animate-in slide-in-from-bottom-2 duration-300">
-              <div className="bg-gradient-to-r from-amber-800 to-orange-800 text-orange-50 border border-orange-700 p-4 rounded-2xl shadow-lg">
+              <div className="bg-gray-200 text-gray-800 p-4 rounded-2xl shadow-sm mr-12">
                 <div className="flex items-center gap-3">
                   <div className="flex gap-1">
-                    <div className="w-2 h-2 bg-orange-400 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-orange-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-2 h-2 bg-orange-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                   </div>
-                  <span className="text-sm text-orange-200">AI is thinking...</span>
+                  <span className="text-sm text-gray-600">AI is thinking...</span>
                 </div>
               </div>
             </div>
@@ -187,20 +187,20 @@ const Playground = () => {
         </div>
 
         {/* Input Area */}
-        <div className="bg-orange-900/50 backdrop-blur-lg rounded-2xl p-4 border border-orange-700">
+        <div className="bg-gray-50 rounded-2xl p-4 border border-gray-200">
           <div className="flex gap-3">
             <Input
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder="Ask me anything about your website..."
-              className="flex-1 px-4 py-3 text-lg bg-orange-800/50 border-orange-600 text-orange-50 placeholder-orange-300 rounded-xl focus:border-orange-500 focus:ring-orange-500/20"
+              className="flex-1 px-4 py-3 text-lg bg-white border-gray-300 text-gray-900 placeholder-gray-500 rounded-xl focus:border-blue-500 focus:ring-blue-500/20"
               disabled={isLoading}
             />
             <Button
               onClick={handleSendMessage}
               disabled={!inputValue.trim() || isLoading}
-              className="px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50"
+              className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50"
             >
               <Send size={20} />
             </Button>
