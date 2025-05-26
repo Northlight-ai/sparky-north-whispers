@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, ArrowLeft, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -112,109 +113,99 @@ const Playground = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
-      {/* Iframe Container */}
-      <div className="max-w-6xl mx-auto">
-        <iframe
-          className="w-full h-screen border-4 border-gray-300 rounded-lg shadow-2xl bg-white"
-          style={{ minHeight: 'calc(100vh - 2rem)' }}
-        >
-          <div className="min-h-full bg-white flex flex-col">
-            {/* Header */}
-            <div className="bg-gradient-to-r from-orange-400 to-orange-600 p-4 shadow-lg">
-              <div className="max-w-7xl mx-auto flex items-center justify-between">
-                <button
-                  onClick={() => navigate('/')}
-                  className="flex items-center gap-2 text-orange-100 hover:text-white font-medium transition-colors"
-                >
-                  <ArrowLeft size={20} />
-                  Back to Home
-                </button>
-                <div className="text-center flex flex-col items-center">
-                  <h1 className="text-2xl font-bold text-white">North Light AI Playground</h1>
-                  <p className="text-orange-100 text-sm">Intelligent RAG-powered assistant</p>
-                </div>
-                <div className="w-24"></div>
+    <div className="min-h-screen bg-gradient-to-br from-orange-100 via-orange-200 to-orange-300 flex items-center justify-center p-4">
+      <div className="w-full max-w-4xl h-[90vh] bg-white/80 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl overflow-hidden">
+        {/* Header */}
+        <div className="bg-gradient-to-r from-orange-400 to-orange-600 p-6 text-white">
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => navigate('/')}
+              className="flex items-center gap-2 text-orange-100 hover:text-white font-medium transition-colors"
+            >
+              <ArrowLeft size={20} />
+              Back to Home
+            </button>
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-white/20 rounded-full">
+                <MessageCircle size={24} />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold">North Light AI Playground</h1>
+                <p className="text-orange-100 text-sm">Your intelligent assistant</p>
               </div>
             </div>
-
-            {/* Chat Container */}
-            <div className="flex-1 max-w-4xl mx-auto w-full p-4 flex flex-col">
-              {/* Messages Area */}
-              <div className="flex-1 overflow-y-auto space-y-4 mb-4 max-h-[calc(100vh-200px)]">
-                {messages.length === 0 && (
-                  <div className="text-center text-gray-600 mt-20">
-                    <div className="w-16 h-16 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <MessageCircle size={32} className="text-white" />
-                    </div>
-                    <p className="text-xl font-medium mb-2">Welcome to North Light AI Playground</p>
-                    <p className="text-sm text-gray-500">Ask me anything about your website content and get intelligent responses powered by RAG technology.</p>
-                  </div>
-                )}
-
-                {messages.map((message) => (
-                  <div
-                    key={message.id}
-                    className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'} animate-in slide-in-from-bottom-2 duration-300`}
-                  >
-                    <div
-                      className={`max-w-[75%] p-4 rounded-2xl shadow-sm ${
-                        message.type === 'user'
-                          ? 'bg-blue-500 text-white ml-12'
-                          : 'bg-gray-200 text-gray-800 mr-12'
-                      }`}
-                    >
-                      <p className="whitespace-pre-wrap break-words">{message.content}</p>
-                      <p className={`text-xs mt-2 ${
-                        message.type === 'user' ? 'text-blue-100' : 'text-gray-500'
-                      }`}>
-                        {message.timestamp.toLocaleTimeString()}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-
-                {isLoading && (
-                  <div className="flex justify-start animate-in slide-in-from-bottom-2 duration-300">
-                    <div className="bg-gray-200 text-gray-800 p-4 rounded-2xl shadow-sm mr-12">
-                      <div className="flex items-center gap-3">
-                        <div className="flex gap-1">
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                        </div>
-                        <span className="text-sm text-gray-600">AI is thinking...</span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                <div ref={messagesEndRef} />
-              </div>
-
-              {/* Input Area */}
-              <div className="bg-gray-50 rounded-2xl p-4 border border-gray-200">
-                <div className="flex gap-3">
-                  <Input
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    placeholder="Ask me anything about your website..."
-                    className="flex-1 px-4 py-3 text-lg bg-white border-gray-300 text-gray-900 placeholder-gray-500 rounded-xl focus:border-blue-500 focus:ring-blue-500/20"
-                    disabled={isLoading}
-                  />
-                  <Button
-                    onClick={handleSendMessage}
-                    disabled={!inputValue.trim() || isLoading}
-                    className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50"
-                  >
-                    <Send size={20} />
-                  </Button>
-                </div>
-              </div>
-            </div>
+            <div className="w-24"></div>
           </div>
-        </iframe>
+        </div>
+
+        {/* Chat Messages */}
+        <div className="flex-1 overflow-y-auto p-6 space-y-4 max-h-[calc(90vh-200px)]">
+          {messages.length === 0 && (
+            <div className="text-center text-gray-500 mt-20">
+              <MessageCircle size={48} className="mx-auto mb-4 text-gray-300" />
+              <p className="text-lg font-medium">Welcome! Ask me anything.</p>
+              <p className="text-sm">Start a conversation by typing your question below.</p>
+            </div>
+          )}
+
+          {messages.map((message) => (
+            <div
+              key={message.id}
+              className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'} animate-in slide-in-from-bottom-2 duration-300`}
+            >
+              <div
+                className={`max-w-[80%] p-4 rounded-2xl ${message.type === 'user'
+                  ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white'
+                  : 'bg-gray-100 text-gray-800 border border-gray-200'
+                  }`}
+              >
+                <p className="whitespace-pre-wrap break-words">{message.content}</p>
+                <p className={`text-xs mt-2 ${message.type === 'user' ? 'text-blue-100' : 'text-gray-500'
+                  }`}>
+                  {message.timestamp.toLocaleTimeString()}
+                </p>
+              </div>
+            </div>
+          ))}
+
+          {isLoading && (
+            <div className="flex justify-start animate-in slide-in-from-bottom-2 duration-300">
+              <div className="bg-gray-100 text-gray-800 border border-gray-200 p-4 rounded-2xl">
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-1">
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                  </div>
+                  <span className="text-sm text-gray-500">Thinking...</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div ref={messagesEndRef} />
+        </div>
+
+        {/* Input Area */}
+        <div className="p-6 bg-white/50 border-t border-gray-200/50">
+          <div className="flex gap-3">
+            <Input
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder="Type your question here..."
+              className="flex-1 px-4 py-3 text-lg border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-0 bg-white/80"
+              disabled={isLoading}
+            />
+            <Button
+              onClick={handleSendMessage}
+              disabled={!inputValue.trim() || isLoading}
+              className="px-6 py-3 bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
+              <Send size={20} />
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );
