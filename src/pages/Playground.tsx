@@ -1,6 +1,5 @@
-
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, ArrowLeft } from 'lucide-react';
+import { Send, ArrowLeft, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
@@ -125,11 +124,6 @@ const Playground = () => {
             Back to Home
           </button>
           <div className="text-center flex flex-col items-center">
-            <img 
-              src="/lovable-uploads/023abf7f-c0b5-4134-9f38-7e5fd5bfdc3f.png" 
-              alt="North Light AI" 
-              className="h-12 w-auto mb-2"
-            />
             <h1 className="text-2xl font-bold text-white">North Light AI Playground</h1>
             <p className="text-orange-100 text-sm">Intelligent RAG-powered assistant</p>
           </div>
@@ -144,7 +138,7 @@ const Playground = () => {
           {messages.length === 0 && (
             <div className="text-center text-gray-600 mt-20">
               <div className="w-16 h-16 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🤖</span>
+                <MessageCircle size={32} className="text-white" />
               </div>
               <p className="text-xl font-medium mb-2">Welcome to North Light AI Playground</p>
               <p className="text-sm text-gray-500">Ask me anything about your website content and get intelligent responses powered by RAG technology.</p>

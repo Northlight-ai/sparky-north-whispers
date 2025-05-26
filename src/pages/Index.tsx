@@ -1,4 +1,3 @@
-
 import ChatBubble from "@/components/ChatBubble";
 import { useNavigate } from "react-router-dom";
 
@@ -18,6 +17,11 @@ const Index = () => {
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-16">
         <div className="text-center space-y-6">
+          <img 
+            src="/lovable-uploads/023abf7f-c0b5-4134-9f38-7e5fd5bfdc3f.png" 
+            alt="North Light AI" 
+            className="h-16 w-auto mx-auto mb-4"
+          />
           <h1 className="text-5xl font-bold bg-gradient-to-r from-orange-500 to-orange-700 bg-clip-text text-transparent">
             North Light AI Chatbot
           </h1>
