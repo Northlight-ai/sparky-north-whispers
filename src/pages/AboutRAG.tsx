@@ -81,7 +81,7 @@ const AboutRAG = () => {
           {/* Technical Architecture */}
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Technical Architecture</h2>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <span className="text-white text-2xl">🕷️</span>
@@ -95,6 +95,13 @@ const AboutRAG = () => {
                 </div>
                 <h3 className="font-semibold text-gray-800">Supabase Vector DB</h3>
                 <p className="text-gray-600 text-sm">High-performance vector storage and similarity search capabilities</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-indigo-400 to-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white text-2xl">🔗</span>
+                </div>
+                <h3 className="font-semibold text-gray-800">LangChain</h3>
+                <p className="text-gray-600 text-sm">Orchestrates the RAG pipeline with document loaders, text splitters, and vector stores</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-3">
